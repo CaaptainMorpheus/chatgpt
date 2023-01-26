@@ -1,0 +1,263 @@
+/* General styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Header styles */
+header {
+  background-color: #34495e;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.logo_tittle {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.img_logo {
+  width: 50px;
+  height: 50px;
+}
+
+/* Navigation styles */
+.navbar {
+  display: none; /* hidden on mobile by default */
+}
+
+.desktop {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.desktop li {
+  margin-left: 20px;
+}
+
+.desktop a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: all 0.2s ease-in-out;
+}
+
+.desktop a:hover {
+  background-color: #2c3e50;
+}
+
+/* Mobile navigation styles */
+.mobile {
+  display: block; /* shown on mobile by default */
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.burgerbtn {
+  width: 30px;
+  height: 20px;
+  margin-right: 20px;
+  background-color: white;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Three horizontal bars to create burger icon */
+.barra {
+  width: 100%;
+  height: 4px;
+  background-color: #34495e;
+  margin: 6px 0;
+  transition: all 0.2s ease-in-out;
+}
+.menuburger {
+  background-color: #fff;
+  color: #34495e;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  display: none; /* hidden by default */
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.menuburger a {
+  display: block;
+  padding: 10px 0;
+  color: #34495e;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.menuburger a:hover {
+  background-color: #f5f5f5;
+}
+
+/* Show mobile navigation when checkbox is checked */
+.nav-toggle:checked ~ .menuburger {
+  display: block;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.menu-burger {
+  display: none; /* hidden by default */
+}
+/*********************bot********************/
+
+.robot {
+  position: relative;
+}
+
+.head {
+  width: 50px;
+  height: 50px;
+  background-color: silver;
+  border-radius: 50%;
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.body {
+  width: 75px;
+  height: 100px;
+  background-color: silver;
+  border-radius: 10px;
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.arm {
+  width: 30px;
+  height: 60px;
+  background-color: silver;
+  border-radius: 10px;
+  position: absolute;
+  top: 85px;
+  left: 20px;
+}
+.left-arm {
+  left: 20px;
+}
+
+/* spécifie les styles pour la jambe gauche */
+.left-leg {
+  width: 30px;
+  height: 60px;
+  background-color: #34495e;
+  border-radius: 10px;
+  position: absolute;
+  top: 145px;
+  left: 20px;
+}
+
+.leg {
+  width: 30px;
+  height: 60px;
+  background-color: #34495e;
+  border-radius: 10px;
+  position: absolute;
+  top: 145px;
+  left: 20px;
+}
+@keyframes moveArms {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+.arm {
+  animation: moveArms 1s ease-in-out infinite;
+}
+
+.leg {
+  animation: moveArms 1s ease-in-out infinite;
+}
+/*********************bot********************/
+
+
+/* Media Queries */
+@media screen and (min-width: 768px) {
+  .navbar {
+      display: flex; /* show navigation on desktop */
+  }
+
+  .mobile {
+      display: none; /* hide mobile navigation on desktop */
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .desktop {
+      display: none; /* hide desktop navigation on mobile */
+  }
+  .burgerbtn .barra:first-child {
+    transform: rotate(45deg);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -2px;
+    margin-left: -10px;
+}
+
+.burgerbtn .barra:nth-child(2) {
+    opacity: 0;
+}
+
+.burgerbtn .barra:last-child {
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -2px;
+    margin-left: -10px;
+}
+
+/* Show burger icon when menu is closed */
+.nav-toggle:not(:checked) ~ .burgerbtn .barra:first-child {
+  transform: rotate(0);
+  margin-top: 0;
+}
+
+.nav-toggle:not(:checked) ~ .burgerbtn .barra:last-child {
+  transform: rotate(0);
+  margin-top: 0;
+}
+}
+
