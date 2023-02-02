@@ -11,6 +11,30 @@ body {
   background-color: #f5f5f5;
 }
 
+.main{
+ 
+  
+  display: flex;
+  justify-content: center;
+  background: #2c3e50b4;
+  margin: 2em;
+  border: 2px solid rgb(153, 51, 51);
+}
+
+.box_main{
+  
+  display: flex;
+  
+}
+h1 {
+  margin-bottom: 8em;
+  font-weight: bold;
+  color: aquamarine;
+  display: flex;
+  border: 2px solid rgb(175, 16, 122);
+}
+
+
 /* Header styles */
 header {
   background-color: #34495e;
@@ -19,7 +43,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  position: fixed;
+ 
   width: 100%;
   z-index: 1;
 }
@@ -135,24 +159,28 @@ header {
 /*********************bot********************/
 
 .robot {
-  position: relative;
+ 
+  border: 2px solid gray;
+  position: absolute;
+  margin-left: 8em;
+  bottom:25em;
+  height: 5em;
+  width: 5em;
 }
 
 .head {
-  width: 50px;
-  height: 50px;
-  background-color: silver;
+ 
   border-radius: 50%;
   position: absolute;
-  top: 25px;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.body {
+.body_img {
+
   width: 75px;
   height: 100px;
-  background-color: silver;
+  z-index: 2;
   border-radius: 10px;
   position: absolute;
   top: 75px;
@@ -160,54 +188,131 @@ header {
   transform: translateX(-50%);
 }
 
-.arm {
-  width: 30px;
-  height: 60px;
-  background-color: silver;
+.bottom_body{
+  width: 80px;
+  height: 50px;
+  z-index: 0;
   border-radius: 10px;
   position: absolute;
-  top: 85px;
-  left: 20px;
+  top: 175px;
+  left: 50%;
+  transform: translateX(-50%);
+
 }
-.left-arm {
-  left: 20px;
+
+
+.left_arm{
+  height:25px;
+  margin-left: 10em;
+  background-color: rgb(219, 23, 23);
+}
+.arm_left
+{
+ 
+  width: 120px;
+  height: 100px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50px;
+  right: 3em;
+}
+.arm_right{
+  width: 100px;
+  height: 75px;
+  border-radius: 10px;
+
+  position: absolute;
+  top: 83px;
+  left: 5em;
+
+
 }
 
 /* spécifie les styles pour la jambe gauche */
-.left-leg {
-  width: 30px;
-  height: 60px;
-  background-color: #34495e;
+.leg_left {
+  width: 90px;
+  height: 160px;
   border-radius: 10px;
   position: absolute;
-  top: 145px;
-  left: 20px;
+  top: 220px;
+  right: 42px;
 }
 
-.leg {
-  width: 30px;
-  height: 60px;
-  background-color: #34495e;
+.right_legs{
+  width: 90px;
+  height: 160px;
   border-radius: 10px;
   position: absolute;
-  top: 145px;
-  left: 20px;
+  top: 220px;
+  left: 30px;
 }
-@keyframes moveArms {
-  0% {
+
+
+@keyframes moveArms_left {
+  10% {
+    
+    transform-origin: 50% 75% ;
+    transform: rotate(2deg)
+  }
+  100% {
+    transform-origin: 50% 75% ;
+    transform: rotate(20deg);
+  }
+}
+@keyframes moveArms_right {
+  50% {
+    
+    transform-origin: top left;
     transform: rotate(0deg);
   }
   100% {
-    transform: rotate(45deg);
+    transform-origin: left 5px -13px;
+    transform: rotate(25deg);
   }
 }
 
-.arm {
-  animation: moveArms 1s ease-in-out infinite;
+@keyframes moveLegs_rigth {
+  0% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(20deg);
+  }
 }
 
+@keyframes moveLeg_left {
+  10% {
+    
+    transform-origin: 550% 75% ;
+    transform: rotate(20deg)
+  }
+  100% {
+    transform-origin: 50% 75% ;
+    transform: rotate(20deg);
+  }
+}
+
+
+
+.arm_left{
+  animation: moveArms_left 5s ease-in-out infinite;
+
+}
+.arm_right {
+  animation: moveArms_right 1.5s ease-in-out infinite;
+}
+.right_legs {
+  animation: moveArms_right 1.5s ease-in-out infinite;
+}
+.right_legs {
+  animation: moveArms_right 1.5s ease-in-out infinite;
+}
+.leg_left{
+  animation: moveArms_right 1.5s ease-in-out infinite;
+
+}
 .leg {
-  animation: moveArms 1s ease-in-out infinite;
+  animation: moveLegs_rigth 2s ease-in-out infinite;
 }
 /*********************bot********************/
 
